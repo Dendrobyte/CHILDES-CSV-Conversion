@@ -9,7 +9,13 @@ This was written for a project I had for my First Language Acquisition class at 
 
 The script is meant to be just that, and thus works in the shell, I didn't bother with UI or anything. The data will ask for a link to the `.cha` file on the [CHILDES database](https://sla.talkbank.org/TBB/childes/) and then prompt you for the search terms you intend to search of. A few more things that I intend to outline in this README once I finish the code, of course, and you'll end up with a CSV file with your data! You can also append data on to an existing spreadsheet if you'd like to compile data from multiple files.
 
-- [ ] Put sample spreadsheet image here to show how columns export
+## What It Looks Like
+
+### Sample program run
+![image](https://user-images.githubusercontent.com/12663558/117867560-86a06900-b266-11eb-8846-8e40a50e5262.png)
+
+### Sample CSV (unfortunate about the blank lines, but alas)
+![image](https://user-images.githubusercontent.com/12663558/117867625-9ae46600-b266-11eb-8f39-eb41701910df.png)
 
 ## Navigation
 
