@@ -53,7 +53,7 @@ print("Reading in the talkbank file...")
 
 # Attempt to open the file
 try:
-    tbFile = open('../Downloaded/' + 'savedFileName')
+    tbFile = open('../Downloaded/' + savedFileName, 'r')
 except:
     print("Uhhh something went wrong with opening the file... Check the Downloaded folder?")
     exit()
@@ -63,6 +63,7 @@ else:
 # Read in file data
 tbFileData = tbFile.read()
 tbFileLines = tbFileData.split("\n")
+tbFile.close()
 
 # Ask for search term and whatnot
 print("What is the word/utterance you are searching for?")
@@ -88,6 +89,52 @@ print("Alrighty... let's find what you need, shall we? How does this look?")
 
 resultLines = utils.findLines(utterance, tbFileLines, context)
 
-for line,contextlines in resultLines.items():
-    print(line)
-    print("\n--------\n")
+# Check if there are lines with the utterance, and show them
+if len(resultLines.keys()) == 0:
+    print("No results for that utterance, sorry!")
+    exit()
+else:
+    for line,contextlines in resultLines.items():
+        print(line)
+        print("--------")
+
+# Confirm whether they should add or append
+print("Time to save into a CSV file!")
+addOrAppend = input("Would you like to create a new file or append to an existing one? Enter C or A")
+create = True
+while True:
+    if addOrAppend.lower() == "a" or addOrAppend.lower() == "c":
+        break
+    else:
+        addOrAppend = input("That's not right... please enter 'C' for create or 'A' for append.")
+
+# Ensure name is valid
+while True:
+    csvFileName = input("Please enter the name of the CSV file: ")
+
+    # Check if file exists if it doesn't already
+    if addOrAppend.lower() == "a":
+        import os
+        if (csvFileName + ".csv") in os.listdir('../Results'):
+            create = False
+            break
+        else:
+            print("Hmm, that file doesn't exist. Make sure it's in the Results folder and is a .csv file")
+            if('.' in csvFileName):
+                print("Also, don't add an extension. Just write the file's name! I assume it's a CSV.")
+    else:
+        break
+# Handle file opening for writing
+# TODO-FEAT: You see why I should be able to skip straight to here? Haha
+csvFileName = '../Results/' + csvFileName + ".csv"
+
+# Write the data to the file
+success = utils.writeToCSV(csvFileName, resultLines, create, savedFileName)
+
+# Finish it up
+if success:
+    print("Mission accomplished!")
+    print("Your file can be found in " + csvFileName)
+else:
+    print("Something went wrong, sorry!")
+
