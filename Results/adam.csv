@@ -1,1 +1,12 @@
-Corpus,Child Name,File Name,Main Line Utterance,Pre-Context,Post-ContextHere,for,example,purposes!Brown,Adam,020304.cha,*CHI:	big drum .,['pre-test'],['post-test']Brown,Adam,020304.cha,*CHI:	beat drum .,['pre-test'],['post-test']Brown,Adam,020304.cha,*CHI:	I beat drum .,['pre-test'],['post-test']Brown,Adam,020304.cha,*CHI:	I'll beat drum .,['pre-test'],['post-test']Brown,Adam,020304.cha,*CHI:	see a [?] truck .,no context,no contextBrown,Adam,020304.cha,*CHI:	not [?] a [?] chair floor .,no context,no contextBrown,Adam,020304.cha,*CHI:	I like a bulldozer .,no context,no contextBrown,Adam,020304.cha,*CHI:	Catherine a [?] dinner ?,no context,no contextBrown,Adam,020304.cha,*CHI:	Adam a [?] home .,no context,no contextBrown,Adam,020304.cha,*CHI:	Cliffy [?] a [?] Bozo Bozo see Bozo .,no context,no contextBrown,Adam,020304.cha,*CHI:	yeah (.) a [?] man (.) yeah .,no context,no contextBrown,Adam,020304.cha,*CHI:	I like a hammer .,no context,no contextBrown,Adam,020304.cha,*CHI:	no (.) a big kitty .,no context,no contextBrown,Adam,020304.cha,*CHI:	look (.) a trailer .,no context,no contextBrown,Adam,020304.cha,*CHI:	Bozo a long time .,no context,no contextBrown,Adam,020304.cha,*CHI:	hit the [?] ball .,no context,no contextBrown,Adam,020304.cha,*CHI:	write the [?] paper .,no context,no contextBrown,Adam,020304.cha,*CHI:	read that [= the dog's paper] .,no context,no contextBrown,Adam,020304.cha,*CHI:	Adam write the paper .,no context,no contextBrown,Adam,020304.cha,*CHI:	find [?] the bum(ble) bee ?,no context,no contextBrown,Adam,020304.cha,*CHI:	kitty op(en) the paper .,no context,no contextBrown,Adam,020304.cha,*CHI:	hit the [?] ball .,['pre-test'],['post-test']Brown,Adam,020304.cha,*CHI:	write the [?] paper .,['pre-test'],['post-test']Brown,Adam,020304.cha,*CHI:	read that [= the dog's paper] .,['pre-test'],['post-test']Brown,Adam,020304.cha,*CHI:	Adam write the paper .,['pre-test'],['post-test']Brown,Adam,020304.cha,*CHI:	find [?] the bum(ble) bee ?,['pre-test'],['post-test']Brown,Adam,020304.cha,*CHI:	kitty op(en) the paper .,['pre-test'],['post-test']
+Corpus,Child Name,File Name,Main Line Utterance,Pre-Context,Post-Context
+Brown,Adam,020304.cha,*CHI:	big drum .,,"*CHI:	play checkers .
+*CHI:	big drum ."
+Brown,Adam,020304.cha,*CHI:	beat drum .,"*CHI:	horse .
+*CHI:	horn .","*URS:	horse .
+*URS:	do you wanna play with them ?"
+Brown,Adam,020304.cha,*CHI:	I beat drum .,"*URS:	horse .
+*CHI:	horse .","*URS:	horse .
+*URS:	do you wanna play with them ?"
+Brown,Adam,020304.cha,*CHI:	I'll beat drum .,"*URS:	horse .
+*CHI:	horse .","*URS:	do you wanna play with them ?
+*CHI:	yeah ."

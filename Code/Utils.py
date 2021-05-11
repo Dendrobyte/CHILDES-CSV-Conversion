@@ -26,19 +26,40 @@ def findLines(utterance, filedatalines, contextNum):
             # Put utterance into the dictionary with an empty list
             linesDict[line] = []
             if contextNum != 0:
-                linesDict[line] = findContext(lineNumber, contextNum)
+                linesDict[line] = findContext(lineNumber, contextNum, filedatalines)
         lineNumber += 1
     return linesDict
 
 """
 lineNumber -- The line number to check
-contextNum -- Number of lines to get before and after a given line
+n -- Number of lines to get before and after a given line
+fileLines -- All the lines of data in the file
 returns contextLines -- A list of lines of context, where a "|" separates pre and post context
 """
 
+# This just goes to n lines before and n lines after that don't start with %
+def findContext(lineNumber, n, fileLines):
+    # Gather a list of pretext by working from the line backwards until we hit n or line 0
+    counter = 0
+    pretext = []
+    for lineNum in range(lineNumber, 0, -1):
+        if fileLines[lineNum][0] == '*':
+            pretext.append(fileLines[lineNum])
+            counter += 1
+            if counter == n:
+                break
 
-def findContext(lineNumber, contextNum):
-    return ["pre-test", "|", "post-test"]
+    # Gather a list of posttext that does the same thing but in reverse
+    counter = 0
+    posttext = []
+    for lineNum in range(lineNumber, len(fileLines)):
+        if fileLines[lineNum][0] == '*':
+            posttext.append(fileLines[lineNum])
+            counter += 1
+            if counter == n:
+                break
+
+    return pretext + ["|"] + posttext
 """
 csvFileName -- File name for the csv file to open and write to
 resultLines -- The lines we write to the csv file
@@ -75,6 +96,10 @@ def writeToCSV(csvFileName, resultLines, create, fileName):
             midOfContext = context.index("|")
             preContext = context[0:midOfContext]
             postContext = context[midOfContext+1::]
+
+            # Convert to strings so it looks better
+            preContext = "\n".join(preContext)
+            postContext = "\n".join(postContext)
 
             # Write the row with context
             csvWriter.writerow([corpus, childName, fileName, line, preContext, postContext])

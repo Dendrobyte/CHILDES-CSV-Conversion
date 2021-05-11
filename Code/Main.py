@@ -131,6 +131,9 @@ csvFileName = '../Results/' + csvFileName + ".csv"
 # Write the data to the file
 success = utils.writeToCSV(csvFileName, resultLines, create, savedFileName)
 
+# Clean up blank rows of the file
+
+
 # Finish it up
 if success:
     print("Mission accomplished!")
