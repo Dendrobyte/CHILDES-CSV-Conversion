@@ -100,7 +100,7 @@ else:
 
 # Confirm whether they should add or append
 print("Time to save into a CSV file!")
-addOrAppend = input("Would you like to create a new file or append to an existing one? Enter C or A")
+addOrAppend = input("Would you like to create a new file or append to an existing one? Enter C or A: ")
 create = True
 while True:
     if addOrAppend.lower() == "a" or addOrAppend.lower() == "c":
@@ -122,6 +122,12 @@ while True:
             print("Hmm, that file doesn't exist. Make sure it's in the Results folder and is a .csv file")
             if('.' in csvFileName):
                 print("Also, don't add an extension. Just write the file's name! I assume it's a CSV.")
+    elif addOrAppend.lower == "c":
+        import os
+
+        if (csvFileName + ".csv") in os.listdir('../Results'):
+            create = False
+            print("That file already exists! Try a different name.")
     else:
         break
 # Handle file opening for writing
