@@ -1,5 +1,5 @@
-import csv
 import wget
+import os
 
 import Utils as utils
 
@@ -18,6 +18,8 @@ print(
 print(
     "Let's go ahead and start with the file you want to convert. Please copy the URL for the file (e.g. https://childes.talkbank.org/data-orig/Eng-NA/Brown/Adam/020304.cha)")
 
+# Change directory
+os.chdir(os.path.dirname(os.getcwd()))
 while True:
 
     reqURL = input("Link to TalkBank file: ")
@@ -39,7 +41,7 @@ while True:
     # Download the file to the Downloaded folder
     print("Attempting to import {} from the provided URL...".format(splitURL[-1]))
     try:
-        r = wget.download(reqURL, '../Downloaded/' + tbFileName)
+        r = wget.download(reqURL, 'Downloaded/' + tbFileName)
     except:
         print("Hmm, something went wrong with the request. Here's the URL we tried: " + reqURL)
         continue
@@ -53,7 +55,7 @@ print("Reading in the talkbank file...")
 
 # Attempt to open the file
 try:
-    tbFile = open('../Downloaded/' + savedFileName, 'r')
+    tbFile = open('Downloaded/' + savedFileName, 'r')
 except:
     print("Uhhh something went wrong with opening the file... Check the Downloaded folder?")
     exit()
@@ -115,7 +117,7 @@ while True:
     # Check if file exists if it doesn't already
     if addOrAppend.lower() == "a":
         import os
-        if (csvFileName + ".csv") in os.listdir('../Results'):
+        if (csvFileName + ".csv") in os.listdir('Results'):
             create = False
             break
         else:
@@ -125,14 +127,14 @@ while True:
     elif addOrAppend.lower == "c":
         import os
 
-        if (csvFileName + ".csv") in os.listdir('../Results'):
+        if (csvFileName + ".csv") in os.listdir('Results'):
             create = False
             print("That file already exists! Try a different name.")
     else:
         break
 # Handle file opening for writing
 # TODO-FEAT: You see why I should be able to skip straight to here? Haha
-csvFileName = '../Results/' + csvFileName + ".csv"
+csvFileName = 'Results/' + csvFileName + ".csv"
 
 # Write the data to the file
 success = utils.writeToCSV(csvFileName, resultLines, create, savedFileName)
