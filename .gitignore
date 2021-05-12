@@ -129,7 +129,7 @@ dmypy.json
 .pyre/
 
 # Files for this project
-/Downloaded/*.cha
-/Results/*.csv
+*.cha
+*.csv
 /.idea
 *.zip
