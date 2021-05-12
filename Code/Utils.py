@@ -83,12 +83,11 @@ def writeToCSV(csvFileName, resultLines, create, fileName):
 
     # Create the first row with labels if it's a new file
     if create:
-        csvWriter.writerow(['Corpus', 'Child Name', 'File Name', 'Main Line Utterance', 'Pre-Context', 'Post-Context'])
+        csvWriter.writerow(['--', 'File Path', 'File Name', 'Main Line Utterance', 'Pre-Context', 'Post-Context'])
 
     # Grab the respective info from the fileName passed into the function
-    corpus = fileName.split("-")[0]
-    childName = fileName.split("-")[1]
-    fileName = fileName.split("-")[2]
+    otherFileInfo = fileName.split("-")[0:len(fileName.split("-"))-1]
+    fileName = fileName.split("-")[-1]
 
     # Write all the lines
     for line,context in resultLines.items():
@@ -103,10 +102,10 @@ def writeToCSV(csvFileName, resultLines, create, fileName):
             postContext = "\n".join(postContext)
 
             # Write the row with context
-            csvWriter.writerow([corpus, childName, fileName, line, preContext, postContext])
+            csvWriter.writerow(['--', otherFileInfo, fileName, line, preContext, postContext])
         else:
             # Write the row without context
-            csvWriter.writerow([corpus, childName, fileName, line, 'no context', 'no context'])
+            csvWriter.writerow(['--', otherFileInfo, fileName, line, 'no context', 'no context'])
 
     # Close the file
     csvFile.close()
