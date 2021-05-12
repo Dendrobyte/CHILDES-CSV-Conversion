@@ -40,6 +40,7 @@ while True:
 
     # Download the file to the Downloaded folder
     print("Attempting to import {} from the provided URL...".format(splitURL[-1]))
+    r = wget.download(reqURL, 'Downloaded/' + tbFileName)
     try:
         r = wget.download(reqURL, 'Downloaded/' + tbFileName)
     except:

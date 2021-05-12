@@ -18,6 +18,7 @@ def findLines(utterance, filedatalines, contextNum):
     for line in filedatalines:
         # Split line by space
         currLine = line.split(" ")
+        currLine = currLine[0].split("\t") + currLine[1::]
         # Skip if it's not a child utterance
         if currLine[0][0:4] != "*CHI":
             continue
