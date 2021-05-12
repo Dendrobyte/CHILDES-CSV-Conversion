@@ -1,4 +1,7 @@
 # CHILDES-CSV-Conversion
+
+[![DOI](https://zenodo.org/badge/366402318.svg)](https://zenodo.org/badge/latestdoi/366402318)
+
 A "small" script I wrote that converts CHILDES data into a spreadsheet format given certain forms of context.
 
 ## Information
