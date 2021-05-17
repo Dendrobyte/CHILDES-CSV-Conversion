@@ -4,6 +4,8 @@
 
 A "small" script I wrote that converts CHILDES data into a spreadsheet format given certain forms of context.
 
+**Context feature is broken, reach out if you want to use this and I can patch it real quick.**
+
 ## Information
 
 This was written for a project I had for my First Language Acquisition class at NYU during the Spring 2021 semester. Professor is Ailis Cournane. My research project investigates child uses of "or" and whether children use "or" as an exclusive or ("xor") or and inclusive or ("ior"). I'll push my research paper to [my website](http://www.markobacon.com) when it's completed if you're curious.
