@@ -26,4 +26,6 @@ The script is meant to be just that, and thus works in the shell, I didn't bothe
 
 You can find all code files in the `Code` folder. The main script that should be run is `Main.py`, but uses the other files. Just maintains cleanliness of code.
 
-You can find all exported CSVs, or put CSVs to modify, in the `Results` folder. If I revisit this project I might allow CSVs to be edited from other directories, but for now it is what it is. You can find a sample CSV in there right now, but otherwise the folder is gitignored.
+You can find all exported CSVs, or put CSVs to modify, in the `Results` folder. If I revisit this project I might allow CSVs to be edited from other directories, but for now it is what it is. You can find a sample CSV in there right now, but otherwise the folder is gitignored. The program is not optimized by any means, so you must ensure you also have a `Downloaded` folder, just as in the release zip and the file structure of this repository. I did error catching where things showed up frequently, but when in doubt read the prompts!
+
+Thanks for stopping by, and if you have any questions feel free to reach out via email or on Twitter, `@Mobkinz78` :D
